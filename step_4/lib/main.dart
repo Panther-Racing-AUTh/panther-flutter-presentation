@@ -45,6 +45,9 @@ class _CalculatorState extends State<Calculator> {
   }
 
   String evaluateExpression(String expression) {
+    if (expression.isEmpty) {
+      return 'Error';
+    }
     try {
       return eval(expression).toString();
     } catch (e) {
@@ -126,27 +129,51 @@ class _CalculatorState extends State<Calculator> {
   }
 
   num eval(String expression) {
-    final tokens = expression.split('');
-    print(tokens);
-    num left = num.parse(tokens[0]);
+    //This line creates a regular expression that matches either one or more
+    //digits or a decimal point OR any of the arithmetic operators -, +, *, or /
+    final regExp = RegExp(r'([\d\.]+|[-+*/])');
+
+    //This line matches the regular expression regExp against the expression
+    //string and returns all the matches as an iterable of Match objects.
+    //The map() function is then called on this iterable to extract the matched
+    //strings from each Match object, and the toList() method is used to convert
+    //the resulting iterable to a list of strings
+    final tokens =
+        regExp.allMatches(expression).map((match) => match.group(0)).toList();
+
+    //This line initializes a variable result with the numeric value of the
+    //first token in the tokens list, which is assumed to be a number.
+    //The ! operator is used to indicate that we know tokens[0] will never
+    //be null or undefined.
+    num result = num.parse(tokens[0]!);
+
+    //This line starts a for loop that iterates over every other token in the
+    //tokens list, starting from the second token (i=1) and incrementing by 2 each time.
     for (int i = 1; i < tokens.length; i += 2) {
       final op = tokens[i];
-      final right = num.parse(tokens[i + 1]);
+
+      //This line extracts the number that follows the operator in the current
+      //token and stores it in a final variable right.
+      final right = num.parse(tokens[i + 1]!);
+
       switch (op) {
         case '+':
-          left += right;
+          result += right;
           break;
         case '-':
-          left -= right;
+          result -= right;
           break;
         case '*':
-          left *= right;
+          result *= right;
           break;
         case '/':
-          left /= right;
+          if (right == 0) {
+            return double.infinity;
+          }
+          result /= right;
           break;
       }
     }
-    return left;
+    return result;
   }
 }
