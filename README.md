@@ -3,12 +3,13 @@
 ## Recommended links
 - [Flutter documentation](https://docs.flutter.dev/)
 - [The official package repository for Dart and Flutter apps.](https://pub.dev/)
+- [Your first Flutter App by Google Codelab](https://codelabs.developers.google.com/codelabs/flutter-codelab-first#0)
 
 ## Useful links
 - [Online Clipboard](https://online-clipboard.online/online-clipboard/)
-- [Presentation](https://www.canva.com/design/DAFgjwJGdhQ/w2nDv-dpnwArtDHDYB1Avw/edit?utm_content=DAFgjwJGdhQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 - [Online Dart & Flutter sandbox](https://zapp.run/)
-- [Your first Flutter App by Google Codelab](https://codelabs.developers.google.com/codelabs/flutter-codelab-first#0)
+- [Presentation](https://www.canva.com/design/DAFgjwJGdhQ/w2nDv-dpnwArtDHDYB1Avw/edit?utm_content=DAFgjwJGdhQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Our Demo Weather App](https://panagiwthspapadopoulos.github.io/#/)
 
 ## Directories and project explanation
 
